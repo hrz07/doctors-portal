@@ -7,7 +7,7 @@ import './Navbar.css'
 
 const Navbar = () => {
 
-    const [user, loading, error] = useAuthState(auth);
+    const [user] = useAuthState(auth);
 
     
     const logout = () => {
@@ -28,6 +28,9 @@ const Navbar = () => {
                             <li><NavLink to="/review" >Review</NavLink></li>
                             <li><NavLink to="/contact" >Contact</NavLink></li>
                             <li><NavLink to="/about" >About</NavLink></li>
+                            {
+                                user && <li><NavLink to="/dashboard" >Dashboard</NavLink></li>
+                            }
                             <li>{user ? <button className="btn btn-ghost"  onClick={logout} >Sign Out</button> : <NavLink to="/login">Login</NavLink>}</li>
                         </ul>
                     </div>
@@ -40,6 +43,9 @@ const Navbar = () => {
                         <li><NavLink to="/review" >Review</NavLink></li>
                         <li><NavLink to="/contact" >Contact</NavLink></li>
                         <li><NavLink to="/about" >About</NavLink></li>
+                        {
+                            user && <li><NavLink to="/dashboard" >Dashboard</NavLink></li>
+                        }
                         <li>{user ? <button className="btn btn-ghost"  onClick={logout} >Sign Out</button> : <NavLink to="/login">Login</NavLink>}</li>
                     </ul>
                 </div>
